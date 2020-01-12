@@ -27,7 +27,8 @@ class feedback_controller extends Controller
     {
            $db = new FeedbackModel();
            $select = $db::orderBy('id','DESC')->paginate(20);
-        return view('admin.feedback_comment',['feedback'=>$select]);
+           return view('admin.feedback_comment',['feedback'=>$select]);
+
     }
 
     /**

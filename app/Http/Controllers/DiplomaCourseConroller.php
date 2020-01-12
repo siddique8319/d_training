@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\diploma_studentModel;
+use Illuminate\Support\Facades\DB;
 use Validator;
 
 class DiplomaCourseConroller extends Controller
@@ -26,7 +27,9 @@ class DiplomaCourseConroller extends Controller
      */
     public function create()
     {
-        //
+        $data = diploma_studentModel::all();
+
+        return view('admin.diplomaBackend', compact('data'));
     }
 
     /**
@@ -38,16 +41,16 @@ class DiplomaCourseConroller extends Controller
     public function store(Request $request)
     {
          $db = new diploma_studentModel();
-       $valid = Validator::make($request->all(),
-        [
-            'application_name'=>'required',
-            'father'=>'required',
-            'email'=>'required'
-        ]);
-
-       if($valid->fails()){
-           return redirect()->back()->withErrors($valid)->withInput();
-       }
+//       $valid = Validator::make($request->all(),
+//        [
+//            'application_name'=>'required',
+//            'father'=>'required',
+//            'email'=>'required'
+//        ]);
+//
+//       if($valid->fails()){
+//           return redirect()->back()->withErrors($valid)->withInput();
+//       }
 
 // ------- get input by form----
           $application_name = $request->input('application_name');
@@ -127,7 +130,7 @@ class DiplomaCourseConroller extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -138,7 +141,11 @@ class DiplomaCourseConroller extends Controller
      */
     public function edit($id)
     {
-        //
+
+        diploma_studentModel::find($id)->update([
+            'status' => 1,
+        ]);
+        return back();
     }
 
     /**
@@ -161,6 +168,8 @@ class DiplomaCourseConroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('diploam_student')->where('id', $id)->delete();
+
+        return redirect()->route('DiplomaCourse.create')->with('success', 'Free Seminar application Deleted Successfully !');
     }
 }

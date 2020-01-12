@@ -65,31 +65,30 @@
                                                         </div>
                                                     </div>
 
-                                                        <div class="form-group">
-                                                            <label for="title">Icon</label>
-                                                            {{ csrf_field()}}
+                                                    <div class="form-group">
+                                                        <label for="title">Icon</label>
+                                                        {{ csrf_field()}}
 
-                                                            <div class="col-xs-12 col-sm-12 col-md-12 padding">
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 padding">
                                 <span class="block input-icon input-icon-right">
                                     <input type="text" name="icon" placeholder="icon" id="icon" class="width-100"/>
                                     <i class="ace-icon fa fa-leaf"></i>
                                 </span>
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="form-group">
-                                                            <div class="col-xs-12 col-sm-12 col-md-12 padding">
-
-                                                                <input type="submit" value="Submit"
-                                                                       name="Subject_name_submit"
-                                                                       class="btn btn-primary"/>
-
-
-                                                            </div>
                                                         </div>
                                                     </div>
 
+
+                                                    <div class="form-group">
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 padding">
+
+                                                            <input type="submit" value="Submit"
+                                                                   name="Subject_name_submit"
+                                                                   class="btn btn-primary"/>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
 
 
                                             </form>
@@ -126,33 +125,32 @@
                                 <th>Action</th>
                             </tr>
 
-                                                        @foreach($news AS $value)
-                                                            <tr>
-                                                                <td>{{$value->id}}</td>
-                                                                <td>{{$value->News}}</td>
-                                                                <td><i class="fa {{$value->icon}}" aria-hidden="true"></i></td>
+                            @foreach($news AS $value)
+                                <tr>
+                                    <td>{{$value->id}}</td>
+                                    <td>{{$value->News}}</td>
+                                    <td><i class="fa {{$value->icon}}" aria-hidden="true"></i></td>
 
 
+                                    <td>
+                                        <div class="action-buttons">
+                                            <a class="green" href="{{ route('addnewsheader.edit',$value->id) }}">
+                                                <span class="glyphicon glyphicon-edit fa-2x"></span>
+                                            </a>
+
+                                            <form action="{{ route('addnewsheader.destroy',$value->id) }}"
+                                                  method="post">
+                                                {{ csrf_field()}}
+                                                {{ method_field('DELETE')}}
+                                                <button class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
 
 
-
-                                                                <td>
-                                                                    <div class="action-buttons">
-                                                                        <a class="green" href="{{ route('addnewsheader.edit',$value->id) }}">
-                                                                            <span class="glyphicon glyphicon-edit fa-2x"></span>
-                                                                        </a>
-
-                                                                        <form action="{{ route('addnewsheader.destroy',$value->id) }}" method="post">
-                                                                            {{ csrf_field()}}
-                                                                            {{ method_field('DELETE')}}
-                                                                            <button class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
-                                                                        </form>
-                                                                    </div>
-
-
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
+                                    </td>
+                                </tr>
+                            @endforeach
 
                         </table>
                     </div>

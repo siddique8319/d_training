@@ -592,68 +592,6 @@
                         <b class="arrow"></b>
                     </li>
 
-                    <!-- <li class="">
-                        <a href="inbox.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Inbox
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="pricing.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Pricing Tables
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="invoice.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Invoice
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="timeline.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Timeline
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="search.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Search Results
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="email.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Email Templates
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li>
-
-                    <li class="">
-                        <a href="login.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Login &amp; Register
-                        </a>
-
-                        <b class="arrow"></b>
-                    </li> -->
                 </ul>
             </li>
 
@@ -755,7 +693,7 @@
                 <a href="" class="dropdown-toggle">
                     <i class="menu-icon fa fa-desktop"></i>
                     <span class="menu-text">
-								Student Application
+							 New Application
 							</span>
 
                     <b class="arrow fa fa-angle-down"></b>
@@ -765,14 +703,12 @@
 
                 <ul class="submenu">
                     <li class="">
-                        <a href="" class="dropdown-toggle">
+                        <a href="{{ route('StudentApplicationBackend.index') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            New Application
-
+                            Professional Course Application
                         </a>
 
                         <b class="arrow"></b>
-
                     </li>
 
 
@@ -780,13 +716,38 @@
 
                 <ul class="submenu">
                     <li class="">
-                        <a href="" class="dropdown-toggle">
+                        <a href="{{ route('DiplomaCourse.create') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            Approved Application
+                            Diploma Course Application
                         </a>
 
                         <b class="arrow"></b>
+                    </li>
 
+
+                </ul>
+
+                <ul class="submenu">
+                    <li class="">
+                        <a href="{{ route('FreeSeminner.create') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Free Seminar
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+
+                </ul>
+
+                <ul class="submenu">
+                    <li class="">
+                        <a href="">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           IT Security Course
+                        </a>
+
+                        <b class="arrow"></b>
                     </li>
 
 
@@ -812,7 +773,7 @@
             <div class="footer-content">
 						<span class="bigger-120">
 							<span class="blue bolder"> DoofazIT  </span>
-						 &copy; 2017
+						 &copy; 2020
 						</span>
 
                 &nbsp; &nbsp;

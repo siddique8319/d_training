@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\freeSeminarModel;
+use Illuminate\Support\Facades\DB;
 use Validator;
 
 class FreeSeminarController extends Controller
@@ -25,7 +26,9 @@ class FreeSeminarController extends Controller
      */
     public function create()
     {
-        //
+        $data = freeSeminarModel::all();
+
+        return view('admin.freeseminarBackend', compact('data'));
     }
 
     /**
@@ -37,16 +40,16 @@ class FreeSeminarController extends Controller
     public function store(Request $request)
     {
    $db = new freeSeminarModel();
-       $valid = Validator::make($request->all(),
-        [
-            'application_name'=>'required',
-            'father'=>'required',
-            'email'=>'required'
-        ]);
-
-       if($valid->fails()){
-           return redirect()->back()->withErrors($valid)->withInput();
-       }
+//       $valid = Validator::make($request->all(),
+//        [
+//            'application_name'=>'required',
+//            'father'=>'required',
+//            'email'=>'required'
+//        ]);
+//
+//       if($valid->fails()){
+//           return redirect()->back()->withErrors($valid)->withInput();
+//       }
 
 // ------- get input by form----
           $application_name = $request->input('application_name');
@@ -121,7 +124,12 @@ class FreeSeminarController extends Controller
      */
     public function edit($id)
     {
-        //
+        freeSeminarModel::find($id)->update([
+            'status' => 1,
+        ]);
+//        return back();
+
+        return redirect()->route('FreeSeminner.create')->with('success', 'Free Seminar application Approved Successfully !');
     }
 
     /**
@@ -144,6 +152,8 @@ class FreeSeminarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('free_course_student')->where('id', $id)->delete();
+//        return back();
+        return redirect()->route('FreeSeminner.create')->with('success', 'Free Seminar application Deleted Successfully !');
     }
 }

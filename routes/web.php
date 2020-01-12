@@ -18,28 +18,34 @@
 
 
 // -------------all admin controller--------------
-Route::group(['middleware'=>'auth'],function(){
-Route::resource('/admin','MainAdminController');
-Route::resource('Slider','SliderController');
-Route::resource('SpeacialVideo','speacialVideoController');
-Route::resource('Studentfeedback','studentFeedbackAdminController');
-Route::resource('UpcomingSeminar','upcomingSeminarcontroller');
-Route::resource('CourseAdmin','courseadminController');
-Route::resource('CertificationAdmin','certifcationProgramadminController');
-Route::resource('OurProgramAdmin','ourProgramadminController');
-Route::resource('AboutOurTrainingAdmin','aboutourTrainingadminController');
+Route::group(['middleware' => 'auth'],
+    function () {
+        Route::resource('/admin', 'MainAdminController');
+        Route::resource('Slider', 'SliderController');
+        Route::resource('SpeacialVideo', 'speacialVideoController');
+        Route::resource('Studentfeedback', 'studentFeedbackAdminController');
+        Route::resource('UpcomingSeminar', 'upcomingSeminarcontroller');
+        Route::resource('CourseAdmin', 'courseadminController');
+        Route::resource('CertificationAdmin', 'certifcationProgramadminController');
+        Route::resource('OurProgramAdmin', 'ourProgramadminController');
+        Route::resource('AboutOurTrainingAdmin', 'aboutourTrainingadminController');
 
-Route::resource('CourseModule','AdminCoursemoduleController');
-Route::resource('SoftwareModule','AdminSoftwaremoduleController');
-Route::resource('AdminMultigallery','AdminMultiGalleryController');
-Route::resource('AdminBlog','adminBlogController');
-Route::resource('AdminTutorial','adminTutorialController');
-Route::resource('AdminNotice','adminNoticeController');
-Route::resource('StudentAdminProject','studentProjectAdmin_Controller');
-Route::resource('FeedbackShow','feedback_controller');
+        Route::resource('CourseModule', 'AdminCoursemoduleController');
+        Route::resource('SoftwareModule', 'AdminSoftwaremoduleController');
+        Route::resource('AdminMultigallery', 'AdminMultiGalleryController');
+        Route::resource('AdminBlog', 'adminBlogController');
+        Route::resource('AdminTutorial', 'adminTutorialController');
+        Route::resource('AdminNotice', 'adminNoticeController');
+        Route::resource('StudentAdminProject', 'studentProjectAdmin_Controller');
+        Route::resource('FeedbackShow', 'feedback_controller');
+        Route::resource('StudentApplicationBackend', 'StudentApplicationController');
 
 
-});
+
+
+
+
+    });
 
 
 
@@ -86,5 +92,10 @@ Route::resource('addSubCategory','subCategoryController');
 //<-------------------------Header News-------------------------------------->
 
 Route::resource('addnewsheader','headerNewsController');
+
+
+//<.......................Student Application route.................................>
+
+
 
 

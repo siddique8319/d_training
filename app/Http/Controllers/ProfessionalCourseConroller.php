@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\professional_studentModel;
-use Validator;
+use Illuminate\Contracts\Validation\Validator;
 
 class ProfessionalCourseConroller extends Controller
 {
@@ -25,6 +25,7 @@ class ProfessionalCourseConroller extends Controller
      */
     public function create()
     {
+        echo 'siddique';
        
     }
 
@@ -37,16 +38,12 @@ class ProfessionalCourseConroller extends Controller
     public function store(Request $request)
     {
         $db = new professional_studentModel();
-       $valid = Validator::make($request->all(),
-        [
+
+        $request->validate([
             'application_name'=>'required',
             'father'=>'required',
             'email'=>'required'
         ]);
-
-       if($valid->fails()){
-           return redirect()->back()->withErrors($valid)->withInput();
-       }
 
 // ------- get input by form----
           $application_name = $request->input('application_name');
